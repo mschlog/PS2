@@ -21,15 +21,15 @@ public class MyInteger {
 
 	//Boolean methods for odd, even, and prime___________________
 	
-	public boolean IsOdd(int value){
+	public boolean IsOdd(){
 		return (value % 2 != 0);
 	}
 	
-	public boolean IsEven(int value){
+	public boolean IsEven(){
 		return (value % 2 == 0);
 	}
 	
-	public boolean IsPrime(int value){
+	public boolean IsPrime(){
 		for(int i=2; i <= value/2; i++){
 			if(value % i == 0){
 				return false;
@@ -58,27 +58,40 @@ public class MyInteger {
 	}
 //_________________________________________
 
-	public boolean equal(int value){
+	public boolean equals(int value){
 		return this.value == value;
 	}
 	
-	public static boolean equal(MyInteger MyInt){
-		return MyInt.value == MyInt.value;
+	public boolean equals(MyInteger MyInt){
+		return this.value == MyInt.value;
 	}
 	
 //_________________________________________
 	
-	public static int parselInt(char[] a){
-		for(int i = 0; i < (a.length -1) ; i++){
-			
+	public static int ParselInt(char[] a){
+		int sumvalue=0;
+		for(int i = 0;i < a.length;i++){
+			sumvalue+=a[i];
 		}
-	return a.length;
+	return sumvalue;
 	}
 	
+	//The TA could not figure this out, we tried to work on it but 
+	//he asked for the code, and is currently still working on it
+	//I sent him my code to play with
+	
 	public static int ParselInt(String a){
-		int b = Integer.parseInt(a);
-		return b;
-		
+		char[] charArray = a.toCharArray();
+		int sumvalue=0;
+		int tempvalue=0;
+		for(int i = 0;i < charArray.length;i++){
+			//tempvalue=(int)charArray[i].intValue();
+			//tempvalue=charArray[i];
+			sumvalue+=charArray[i];
+			System.out.print(tempvalue);
+			System.out.println("   ");
+		}
+		return sumvalue;
 	}
 	
 	//static method parse int --> forloop 0 to array length then sum up number and 
@@ -91,15 +104,17 @@ public class MyInteger {
 	 * Encapsulation private attributes public methods
 	 */
 	
-public static void main(String[] args){
-	MyInteger odd = new MyInteger(5);
+public static void main(String[] args){ 
+	MyInteger odd = new MyInteger(5); 
 	MyInteger even = new MyInteger(4);
 	MyInteger prime = new MyInteger(71);
 	/*System.out.println(IsOdd(odd));
 	System.out.println(IsEven(even));
 	System.out.println(IsPrime(prime));
 	System.out.println(IsOdd(even));
-	System.out.println(IsEven(odd));
-	System.out.println(IsPrime(even));*/
+	System.out.println(IsEven(odd));*/
+	char [] array = {1,2,3};
+	String b = "123";
+	System.out.println(ParselInt(b));
 }
 }
